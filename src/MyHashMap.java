@@ -3,7 +3,7 @@ public int size = 0;
     NodeMyHashMap<H, M> lastNode = null;
     NodeMyHashMap<H, M> firstNode = null;
     public void put(H key, M value) {
-       if (constanceKey(key)) {
+       if (contanceKey(key)) {
            return;
        }
        var newNode = new NodeMyHashMap<>(key, value);
@@ -15,7 +15,7 @@ public int size = 0;
        lastNode.next = newNode;
        lastNode = newNode;
     }
-    private boolean constanceKey(H key) {
+    private boolean contanceKey(H key) {
         var current = firstNode;
         while (current != null) {
             if (current.key.equals(key)) {
@@ -25,17 +25,18 @@ public int size = 0;
         }
         return false;
     }
-    public M remove(H key) {
-        M returnValue = null;
+    public void remove(H key) {
         var current = firstNode;
+        NodeMyHashMap<H, M> previous = null;
         while (current != null) {
             if (current.key.equals(key)) {
-                current.key = null;
-                current.value = null;
+                var next = current.next;
+                previous.next = next;
+                return;
             }
+            previous = current;
             current = current.next;
         }
-        return returnValue;
     }
     public void clear() {
         var current = firstNode;
