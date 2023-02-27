@@ -1,57 +1,78 @@
 public class MyHashMap<H, M> {
-public int size =0;
-    NodeMyHashMap data = null;
+public int size = 0;
+    NodeMyHashMap<H, M> lastNode = null;
+    NodeMyHashMap<H, M> firstNode = null;
     public void put(H key, M value) {
-        var newNode = new NodeMyHashMap(key, value);
-        var current = data;
-        if (data == null) {
-            data = newNode;
-        } else {
-            data.next = newNode;
-            data = newNode;
-        }
+       if (constanceKey(key)) {
+           return;
+       }
+       var newNode = new NodeMyHashMap<>(key, value);
+       if (firstNode == null) {
+           firstNode = newNode;
+           lastNode = newNode;
+           return;
+       }
+       lastNode.next = newNode;
+       lastNode = newNode;
     }
-    public void remove(H key) {
-        var current = data;
-        while (current.key.equals(key)) {
-            current = null;
-            size--;
-            current = data.next;
+    private boolean constanceKey(H key) {
+        var current = firstNode;
+        while (current != null) {
+            if (current.key.equals(key)) {
+                return true;
+            }
+            current = current.next;
         }
+        return false;
+    }
+    public M remove(H key) {
+        M returnValue = null;
+        var current = firstNode;
+        while (current != null) {
+            if (current.key.equals(key)) {
+                current.key = null;
+                current.value = null;
+            }
+            current = current.next;
+        }
+        return returnValue;
     }
     public void clear() {
-        var current = data;
+        var current = firstNode;
         while (current != null) {
-            current = null;
-            current = data.next;
+            current.key = null;
+            current.value = null;
+            current = current.next;
         }
     }
     public int size() {
-        var current = data;
+        var current = firstNode;
         while (current != null) {
             size++;
-            current = data.next;
+            current = current.next;
         }
         return size;
     }
     public M get(H key) {
         M returnValue = null;
-        var current = data;
-        while (current.key.equals(key)) {
-            returnValue = (M) current.value;
-            current = data.next;
+        var current = firstNode;
+        while (current != null) {
+            if (current.key.equals(key)) {
+                return current.value;
+            }
+            current = current.next;
         }
         return returnValue;
     }
     public void print() {
-        NodeMyHashMap current = data;
-        if (data == null) {
+        NodeMyHashMap current = firstNode;
+        if (firstNode == null) {
             System.out.println("List is empty");
             return;
         }
         System.out.println("Nodes : ");
         while (current != null) {
-            System.out.print("key= " + current.key + " " + "value= " + current.value + " ");
+            System.out.print("key= " + current.key + " " + "value= " + current.value + "; ");
             current = current.next;
         }
         System.out.println();

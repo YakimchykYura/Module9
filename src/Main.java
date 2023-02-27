@@ -44,13 +44,16 @@ public class Main {
 //    }
 //    }
 
-//        MyHashMap<String, String> hashMap = new MyHashMap<>();
-//        hashMap.put("Max", "12 years");
-//        hashMap.print();
-//        hashMap.clear();
-//        hashMap.print();
-//        int size = hashMap.size();
-//        System.out.println(size);
+        MyHashMap<String, String> hashMap = new MyHashMap<>();
+        hashMap.put("Max", "12 years");
+        hashMap.put("fox", "11 years");
+        hashMap.put("lis", "11 years");
+        hashMap.put("Yura", "11 years");
+        hashMap.print();
+        hashMap.remove("Yura");
+        hashMap.print();
+        hashMap.clear();
+        hashMap.print();
 //        String value = hashMap.get("Max");
 //        System.out.println(value);
 
