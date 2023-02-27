@@ -62,13 +62,13 @@ public class Main {
 //            queue.add("Hello" + i);
 //        }
 //        System.out.println(queue);
-////        String name = queue.poll();
-////        System.out.println(name);
-////        System.out.println(queue);
+//        String name = queue.poll();
+//        System.out.println(name);
+//        System.out.println(queue);
 //        int size = queue.size();
 //        System.out.println(size);
-////        queue.clear();
-////        System.out.println(queue);
+//        queue.clear();
+//        System.out.println(queue);
 //        String peek = queue.peek();
 //        System.out.println(peek);
 //        MyStack<String> stack = new MyStack<>();

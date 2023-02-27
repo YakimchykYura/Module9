@@ -40,8 +40,8 @@ public int size = 0;
     public void clear() {
         var current = firstNode;
         while (current != null) {
-            current.key = null;
-            current.value = null;
+            firstNode = null;
+            lastNode = null;
             current = current.next;
         }
     }

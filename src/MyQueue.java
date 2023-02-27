@@ -19,10 +19,7 @@ public class MyQueue<Q> {
         size++;
     }
     public void clear() {
-        for (int i = 0; i < information.length; i++) {
-            information[i] = null;
-            size--;
-        }
+        information = Arrays.copyOf(information, 0);
     }
     public int size() {
         return size;
