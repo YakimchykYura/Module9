@@ -17,10 +17,6 @@ public class Main {
 //
 //        arrayList.get(4);
 
-//        MyLinkedList<String> linkedList = new MyLinkedList();
-//        for (int i = 0; i < 11; i++) {
-//            linkedList.add("Hello" + i);
-//        }
 //        MyLinkedList<String> linkedList = new MyLinkedList<>();
 //        for (int i = 0; i < 11; i++) {
 //            linkedList.add("Hello" + i);
@@ -35,15 +31,6 @@ public class Main {
 //    }
 
 
-
-//    private static<T> void printMyArrayList(Iterable<T> iterable) {
-//        for (T name: iterable) {
-//            System.out.print(name + ", ");
-//        }
-//        System.out.println();
-//    }
-//    }
-
 //        MyHashMap<String, String> hashMap = new MyHashMap<>();
 //        hashMap.put("Max", "12 years");
 //        hashMap.put("fox", "11 years");
@@ -56,6 +43,7 @@ public class Main {
 //        hashMap.print();
 //        String value = hashMap.get("Max");
 //        System.out.println(value);
+
 
 //    MyQueue<String> queue = new MyQueue<>();
 //        for (int i = 0; i < 11; i++) {
@@ -71,6 +59,8 @@ public class Main {
 //        System.out.println(queue);
 //        String peek = queue.peek();
 //        System.out.println(peek);
+
+
 //        MyStack<String> stack = new MyStack<>();
 //        stack.push("Max");
 //        stack.push("Nazar");
