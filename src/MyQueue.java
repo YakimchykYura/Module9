@@ -1,42 +1,46 @@
 import java.util.Arrays;
 
 public class MyQueue<Q> {
-    public Q[] information;
+    private Q[] data;
     private int size;
 
     public MyQueue() {
-        this.information = (Q[]) new Object[10];
+        this.data = (Q[]) new Object[10];
     }
     public void add(Q value) {
         if (value == null) {
             return;
         }
-        if (information.length <= size) {
-            var newLengthArray = information.length * 1.5;
-            information = Arrays.copyOf(information, (int) newLengthArray);
+        if (data.length == 0) {
+            data = (Q[])new Object[10];
         }
-        information[size] = value;
+        if (data.length <= size) {
+            var newLengthArray = data.length * 1.5;
+            data = Arrays.copyOf(data, (int) newLengthArray);
+        }
+        data[size] = value;
         size++;
     }
     public void clear() {
-        information = Arrays.copyOf(information, 0);
+        data = Arrays.copyOf(data, 0);
+        size = 0;
     }
     public int size() {
         return size;
     }
     public Q peek() {
-        return information[0];
+        return data[0];
     }
     public Q poll() {
-        Q returnInformation = information[0];
-        information[0] = null;
+        Q returnInformation = data[0];
+        data[0] = null;
         size--;
         return returnInformation;
     }
     @Override
     public String toString() {
         return "MyQueue{" +
-                "information=" + Arrays.toString(information) +
+                "information=" + Arrays.toString(data) +
                 '}';
     }
 }

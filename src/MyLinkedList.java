@@ -1,10 +1,33 @@
 public class MyLinkedList <L> {
     private L value;
+    class Node<L> {
+        L value;
+        Node next;
 
-    public MyLinkedList() {
+        public Node(L data) {
+            this.value = data;
+            this.next = null;
+        }
+        public Node first = null;
+        public Node last = null;
+
+        public void addNode(L data) {
+            Node newNode = new Node(data);
+
+            if (first == null) {
+                first = newNode;
+                last = newNode;
+            } else {
+                last.next = newNode;
+                last = newNode;
+            }
+        }
+    }
+
+    private MyLinkedList() {
         this.value = value;
     }
-    Node<L> node = new Node<>(value);
+    private Node<L> node = new Node<>(value);
     public void add(L value) {
     node.addNode(value);
     }
@@ -43,21 +66,24 @@ public class MyLinkedList <L> {
             count++;
         }
     }
-    public void get(int index) {
+    public L get(int index) {
         if (index < 0) {
-            return;
+            return null;
         }
         int count = 0;
         Node current = node.first;
+        L getNode = null;
 
         System.out.println("Node ");
         while (current != null) {
             if (count == index) {
-                System.out.println(current.value);
+                getNode = (L) current.value;
+                return getNode;
             }
             current = current.next;
             count++;
         }
+        return getNode;
     }
     public void clear() {
         Node current = node.first;

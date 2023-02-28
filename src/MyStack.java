@@ -1,43 +1,47 @@
 import java.util.Arrays;
 
 public class MyStack<S> {
-    private S[] information;
+    private S[] data;
     private int size;
 
     public MyStack() {
-        this.information = (S[]) new Object[10];
+        this.data = (S[]) new Object[10];
     }
 
     public void push(S value) {
         if (value == null) {
             return;
         }
-        if (information.length <= size) {
-            var newSize = information.length * 1.5;
-            information = Arrays.copyOf(information, (int) newSize);
+        if (data.length == 0) {
+            data = (S[])new Object[10];
         }
-        information[size] = value;
+        if (data.length <= size) {
+            var newSize = data.length * 1.5;
+            data = Arrays.copyOf(data, (int) newSize);
+        }
+        data[size] = value;
         size++;
     }
     public void remove(int index) {
         if (index < 0) {
             return;
         }
-        information[index] = null;
+        data[index] = null;
         size--;
     }
     public void clear() {
-        information = Arrays.copyOf(information, 0);
+        data = Arrays.copyOf(data, 0);
+        size = 0;
     }
     public int size() {
         return size;
     }
     public S peek() {
-        return information[size -1];
+        return data[size -1];
     }
     public S pop() {
-        S firstElement = information[size -1];
-        information[size -1] = null;
+        S firstElement = data[size -1];
+        data[size -1] = null;
         size--;
         return firstElement;
     }
@@ -45,7 +49,7 @@ public class MyStack<S> {
     @Override
     public String toString() {
         return "MyStack{" +
-                "information=" + Arrays.toString(information) +
+                "information=" + Arrays.toString(data) +
                 '}';
     }
 }

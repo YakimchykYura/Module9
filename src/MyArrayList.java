@@ -1,24 +1,26 @@
 import java.util.Arrays;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
 
 public class MyArrayList <T> {
-    private T[] information;
+    private T[] data;
+
     private int size;
 
     public MyArrayList() {
-        this.information = (T[]) new Object[10];
+        this.data = (T[]) new Object[10];
     }
 
     public void add(T value) {
         if (value == null) {
             return;
         }
-        if (information.length <= size) {
-            var newSize = (int) (information.length * 1.5);
-            information = Arrays.copyOf(information, newSize);
+        if (data.length == 0) {
+            data = (T[])new Object[10];
         }
-        information[size] = value;
+        if (data.length <= size) {
+            var newSize = (int) (data.length * 1.5);
+            data = Arrays.copyOf(data, newSize);
+        }
+        data[size] = value;
         size++;
     }
 
@@ -27,15 +29,16 @@ public class MyArrayList <T> {
             return;
         }
         for (; index < size - 1; index++) {
-            information[index] = information[index + 1];
+            data[index] = data[index + 1];
         }
-        information[size - 1] = null;
+        data[size - 1] = null;
         size--;
     }
 
     public void clear() {
-        T[] emptyArrays = Arrays.copyOf(information, 0);
-        System.out.println(Arrays.toString(emptyArrays));
+        data = Arrays.copyOf(data, 0);
+        size = 0;
+        System.out.println(Arrays.toString(data));
     }
 
     public int size() {
@@ -43,18 +46,17 @@ public class MyArrayList <T> {
         return size;
     }
 
-    public void get(int index) {
+    public T get(int index) {
         if (index < 0) {
-            return;
+            return null;
         }
-        var valueUnderIndex = information[index];
-        System.out.println(valueUnderIndex);
+        return data[index];
     }
 
     @Override
     public String toString() {
         return "MyArrayList{" +
-                "information=" + Arrays.toString(information) +
+                "information=" + Arrays.toString(data) +
                 '}';
     }
 }

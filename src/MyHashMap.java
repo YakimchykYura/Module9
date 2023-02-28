@@ -1,9 +1,21 @@
 public class MyHashMap<H, M> {
-public int size = 0;
-    NodeMyHashMap<H, M> lastNode = null;
-    NodeMyHashMap<H, M> firstNode = null;
+private int size = 0;
+private NodeMyHashMap<H, M> lastNode = null;
+private NodeMyHashMap<H, M> firstNode = null;
+    class NodeMyHashMap<H, M> {
+        H key;
+        M value;
+        NodeMyHashMap next;
+
+        public NodeMyHashMap(H key, M value) {
+            this.key = key;
+            this.value = value;
+            this.next = null;
+        }
+    }
     public void put(H key, M value) {
-       if (contanceKey(key)) {
+
+       if (containsKey(key)) {
            return;
        }
        var newNode = new NodeMyHashMap<>(key, value);
@@ -15,7 +27,7 @@ public int size = 0;
        lastNode.next = newNode;
        lastNode = newNode;
     }
-    private boolean contanceKey(H key) {
+    private boolean containsKey(H key) {
         var current = firstNode;
         while (current != null) {
             if (current.key.equals(key)) {

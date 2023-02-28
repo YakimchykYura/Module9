@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class Main {
@@ -6,16 +7,11 @@ public class Main {
 //        for (int i = 0; i < 11; i++) {
 //            arrayList.add("Hello" + i);
 //        }
-//        printMyArrayList(arrayList);
-//
-//        arrayList.remove(2);
-//        printMyArrayList(arrayList);
-//
+//        System.out.println(arrayList);
 //        arrayList.clear();
-//
-//        arrayList.size();
-//
-//        arrayList.get(4);
+//        arrayList.add("hello");
+//        System.out.println(arrayList);
+
 
 //        MyLinkedList<String> linkedList = new MyLinkedList<>();
 //        for (int i = 0; i < 11; i++) {
@@ -77,5 +73,9 @@ public class Main {
 //        System.out.println(stack);
 //        stack.clear();
 //        System.out.println(stack);
+//        stack.push("Nazar");
+//        stack.push("Maxim");
+//        System.out.println(stack);
+
     }
 }
